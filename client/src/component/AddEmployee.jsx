@@ -1,64 +1,86 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { addEmployeeRecord } from "../api/empApi";
+import { useEmpState } from "../context/EmpProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddEmployee = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const { trigger, setTrigger } = useEmpState();
+
   const onSubmit = async (data) => {
-    console.log(data);
+    try {
+      const response = await addEmployeeRecord(data);
+      setTrigger(!trigger);
+      if (response.status === 201) {
+        if (!toast.isActive("emp-added")) {
+          toast.success("Employee Record Added Successfully", {
+            toastId: "emp-added",
+          });
+        }
+      }
+      reset();
+    } catch (error) {
+      toast.error("Failed to Add Employee Record");
+      console.error("Error adding employee record:", error);
+    }
   };
 
   return (
     <div className="mt-3 w-full p-3">
-      <h1 className="text-lg font-semibold mb-3">Add Employee Data</h1>{" "}
-      <div className="w-full flex justify-around items-center p-4">
+      <ToastContainer position="top-center" autoClose={2000} />
+      <h1 className="text-lg font-semibold mb-3">Add Employee Data</h1>
+
+      <div className="w-full">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-wrap md:flex-nowrap gap-3 h-12">
-            <div className="bg-white py-2 px-3 w-[250px] border border-red-500 rounded-lg relative">
-              <label className="bg-white absolute top-[-11px] left-3">
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-3">
+            <div className="bg-white py-2 px-3 w-full sm:w-[250px] border border-red-500 rounded-lg relative">
+              <label className="bg-white absolute -top-3 left-3 text-sm">
                 Name
               </label>
               <input
                 {...register("name")}
                 type="text"
-                className="w-full p-1 focus:outline-none focus:ring-0"
+                className="w-full p-1 focus:outline-none"
               />
             </div>
 
-            <div className="bg-white p-3 w-[250px] border border-red-500 rounded-lg relative">
-              <label className="bg-white absolute top-[-11px] left-3">
+            <div className="bg-white py-2 px-3 w-full sm:w-[250px] border border-red-500 rounded-lg relative">
+              <label className="bg-white absolute -top-3 left-3 text-sm">
                 Department
               </label>
               <input
                 {...register("department")}
                 type="text"
-                className="w-full p-1 focus:outline-none focus:ring-0"
+                className="w-full p-1 focus:outline-none"
               />
             </div>
 
-            <div className="bg-white p-3 w-[250px] border border-red-500 rounded-lg relative">
-              <label className="bg-white absolute top-[-11px] left-3">
+            <div className="bg-white py-2 px-3 w-full sm:w-[250px] border border-red-500 rounded-lg relative">
+              <label className="bg-white absolute -top-3 left-3 text-sm">
                 Email
               </label>
               <input
                 {...register("email")}
                 type="email"
-                className="w-full p-1 focus:outline-none focus:ring-0"
+                className="w-full p-1 focus:outline-none"
               />
             </div>
 
-            <div className="bg-white p-3 w-[250px] border border-red-500 rounded-lg relative">
-              <label className="bg-white absolute top-[-11px] left-3">
+            <div className="bg-white py-2 px-3 w-full sm:w-[250px] border border-red-500 rounded-lg relative">
+              <label className="bg-white absolute -top-3 left-3 text-sm">
                 Role
               </label>
               <input
                 {...register("role")}
                 type="text"
-                className="w-full p-1 focus:outline-none focus:ring-0"
+                className="w-full p-1 focus:outline-none"
               />
             </div>
 
-            <div className="bg-white p-3 p-3 flex items-center justify-center">
-              <button className="bg-red-500 text-white p-3 rounded-lg hover:bg-red-300 transition duration-300">
+            <div className="flex items-center justify-center w-full sm:w-auto">
+              <button className="bg-red-500 text-white w-full sm:w-auto px-4 py-2 rounded-lg hover:bg-red-300 transition duration-300">
                 Add Employee
               </button>
             </div>

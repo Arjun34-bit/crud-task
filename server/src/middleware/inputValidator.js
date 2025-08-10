@@ -2,7 +2,7 @@ import Joi from "joi";
 
 const empSchema = Joi.object({
   name: Joi.string().min(3).required(),
-  department: Joi.string().min(3).required(),
+  department: Joi.string().min(2).required(),
   email: Joi.string().email().required(),
   role: Joi.string().min(3).required(),
 });

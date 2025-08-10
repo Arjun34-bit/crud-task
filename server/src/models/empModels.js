@@ -51,7 +51,6 @@ export const deleteEmployeeService = async (delData) => {
 
 export const updateEmployeService = async (id, data) => {
   try {
-    console.log(data);
     const result = await pool.query(
       "UPDATE employees SET name=$1, department=$2, email=$3, role=$4 WHERE id=$5 RETURNING *",
       [data.name, data.department, data.email, data.role, id]
