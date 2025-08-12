@@ -158,8 +158,7 @@ const EmployeesTable = () => {
 
   return (
     <div className="w-full p-3 mt-3">
-      {/* <ToastContainer position="top-center" autoClose={2000} /> */}
-      <h1 className="text-lg font-semibold mb-3">EmployeesTable</h1>
+      <h1 className="text-lg font-semibold mb-3">Employees Table</h1>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-3">
         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
           <input
