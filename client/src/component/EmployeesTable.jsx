@@ -162,7 +162,7 @@ const EmployeesTable = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-3">
         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
           <input
-            placeholder="Filter by Name..."
+            placeholder="Search by Name..."
             onChange={handleExternalFilterChange}
             className="rounded-lg border-2 border-blue-300 p-2 w-64"
           />
