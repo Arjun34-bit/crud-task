@@ -20,8 +20,8 @@ const AddEmployee = () => {
       }
       reset();
     } catch (error) {
-      toast.error("Failed to Add Employee Record");
-      console.error("Error adding employee record:", error);
+      toast.error("Failed to Add Employee's Record");
+      console.error("Error adding employee's record:", error);
     }
   };
 
