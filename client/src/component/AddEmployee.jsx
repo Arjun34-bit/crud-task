@@ -14,7 +14,7 @@ const AddEmployee = () => {
       const response = await addEmployeeRecord(data);
       setTrigger(!trigger);
       if (response.status === 201) {
-        toast.success("Employee Added Successfully", {
+        toast.success("Employee Record Added Successfully", {
           toastId: "emp-added",
         });
       }
