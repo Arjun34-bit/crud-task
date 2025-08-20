@@ -28,7 +28,7 @@ const AddEmployee = () => {
   return (
     <div className="mt-3 w-full p-3">
       <ToastContainer position="top-center" autoClose={2000} />
-      <h1 className="text-lg font-semibold mb-3">Add Employee</h1>
+      <h1 className="text-lg font-semibold mb-3">Add Employee Data</h1>
 
       <div className="w-full">
         <form onSubmit={handleSubmit(onSubmit)}>
