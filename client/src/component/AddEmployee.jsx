@@ -46,7 +46,7 @@ const AddEmployee = () => {
 
             <div className="bg-white py-2 px-3 w-full sm:w-[250px] border border-red-500 rounded-lg relative">
               <label className="bg-white absolute -top-3 left-3 text-sm">
-                Department
+                Departments
               </label>
               <input
                 {...register("department")}
