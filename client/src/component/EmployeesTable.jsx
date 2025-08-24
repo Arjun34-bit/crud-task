@@ -65,7 +65,7 @@ const EmployeesTable = () => {
       Role: "Full Stack Developer",
     },
     {
-      Name: "Karan",
+      Name: "Karan Devendra",
       Department: "Developer",
       Email: "karan@gmail.com",
       Role: "Backend Developer",
