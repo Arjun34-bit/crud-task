@@ -59,7 +59,7 @@ const EmployeesTable = () => {
 
   const [rowData, setRowData] = useState([
     {
-      Name: "Arjun",
+      Name: "Arjun Devendra",
       Department: "Developer",
       Email: "arjun@gmail.com",
       Role: "Full Stack Developer",
