@@ -17,7 +17,7 @@ export const addEmployee = async (req, res, next) => {
   try {
     const data = req.body;
     const newEmployee = await addEmployeeService(data);
-    handleResponse(res, 201, "Employee added successfully", newEmployee);
+    handleResponse(res, 201, "Employee record added successfully", newEmployee);
   } catch (error) {
     next(error);
   }
