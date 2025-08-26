@@ -15,7 +15,7 @@ const createUserTable = async () => {
 
   try {
     pool.query(queryText);
-    console.log("Employees table created successfully");
+    console.log("Employees table created");
   } catch (error) {
     console.log("Error creating employees table:", error);
   }
