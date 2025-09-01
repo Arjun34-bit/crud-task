@@ -18,7 +18,7 @@ export const addEmployeeService = async (data) => {
 
     return result.rows[0];
   } catch (error) {
-    console.error("Error deleting employees:", error);
+    console.error("Error adding employees:", error);
     throw error;
   }
 };
