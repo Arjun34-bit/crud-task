@@ -57,7 +57,7 @@ export const updateEmployeService = async (id, data) => {
     );
     return result.rows[0];
   } catch (error) {
-    console.error("Error deleting employee:", error);
+    console.error("Error updating employee:", error);
     throw error;
   }
 };
