@@ -5,7 +5,7 @@ export const getAllEmployeesService = async () => {
     const result = await pool.query("SELECT * FROM employees");
     return result.rows;
   } catch (error) {
-    console.error("Error deleting employees:", error);
+    console.error("Error fetching all employees:", error);
     throw error;
   }
 };
